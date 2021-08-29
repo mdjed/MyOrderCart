@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -36,6 +37,8 @@ namespace MyOrderCart
             services.AddTransient<ISearchItem, SearchItem>();
 
             services.AddTransient<Product>();
+            services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase(databaseName: "MyOrderCartDB"));
+
             // services.AddTransient<Cart>();
             // services.AddTransient<Order>();
         }
