@@ -1,0 +1,72 @@
+﻿@page "/ProductComponent"
+@inject HttpClient http;
+@inject Product product;
+
+
+<h1>API Calling</h1>
+<h3>Product Component</h3>
+
+<button class="btn btn-success" @onclick="@GetProducts">Get Product List</button>
+<br />
+<br />
+<form class="form-inline">    
+    <div class="form-group mx-sm-3 mb-2">
+        <label for="filter">Search Item:&nbsp;</label>
+        <input type="text" class="form-control" id="filter" @bind-value="filter" />        
+    </div>
+    <button type="button" class="btn btn-primary mb-2" @onclick="@HandleSearch">Search</button>
+</form>
+
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <td>Title</td>
+            <td>Price</td>   
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in @Products)
+        {
+            <tr>
+                <td>@product.Title</td>
+                <td>@product.Price</td>
+                <td><button class="btn btn-danger">Add to Cart</button></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+@code{
+
+    public List<Product> Products = new List<Product>();
+    public string api_url = "https://fakestoreapi.com/products";
+
+    public async Task GetProducts()
+    {
+        Products = await http.GetJsonAsync<List<Product>>(api_url);
+
+    }
+    public async Task<Product> AddProduct(Product product)
+    {
+        return await http.PostJsonAsync<Product>("", product);
+    }
+
+    public string filter;
+
+    [Parameter]
+    public EventCallback<string> OnSearch { get; set; }
+
+    private void HandleSearch()
+    {
+        OnSearch.InvokeAsync(filter);
+
+    }
+
+}
+
+
+
+

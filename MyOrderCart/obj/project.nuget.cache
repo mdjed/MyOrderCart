@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "84JOPlX8sWMna2DaPY4wYhwUEHsHWlmzrRw3xKMgS1wrjjL9gPL+4y+6YKNzo7+pWLQr6ddeGIM5nbTJXpYDJQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\user\\source\\repos\\MyOrderCartApp\\MyOrderCart\\MyOrderCart.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.blazor.httpclient\\3.2.0-preview3.20168.3\\microsoft.aspnetcore.blazor.httpclient.3.2.0-preview3.20168.3.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.text.json\\4.7.1\\system.text.json.4.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}
